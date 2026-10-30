@@ -1,0 +1,10 @@
+{
+  "name": "genpark-agent-social",
+  "version": "1.0.0",
+  "description": "GenPark Agent Social - Granovetter linear threshold viral cascade simulation, epidemic R0 reproduction rate estimator, and greedy seed node selection with zero dependencies.",
+  "tools": [
+    "simulate_granovetter_linear_threshold_cascade",
+    "estimate_basic_reproduction_number_r0",
+    "select_influential_seed_nodes_greedy"
+  ]
+}
