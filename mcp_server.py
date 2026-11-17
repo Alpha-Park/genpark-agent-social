@@ -8,18 +8,9 @@ import json
 from typing import Dict, Any, List
 from client import GenParkAgentSocial
 
-try:
-    from mcp.server.fastmcp import FastMCP
-    mcp = FastMCP("genpark-agent-social")
-except ImportError:
-    class MockFastMCP:
-        def __init__(self, name):
-            self.name = name
-        def tool(self):
-            def decorator(f):
-                return f
-            return decorator
-    mcp = MockFastMCP("genpark-agent-social")
+from mcp.server.fastmcp import FastMCP
+
+mcp = FastMCP('genpark-agent-social')
 
 social = GenParkAgentSocial()
 
@@ -61,8 +52,7 @@ def select_influential_seed_nodes_greedy(
     return json.dumps(res, indent=2)
 
 def main():
-    print("Testing Agent Social:")
-    print(estimate_basic_reproduction_number_r0(10, 0.2, 2.0))
+    mcp.run(transport="stdio")
 
 if __name__ == "__main__":
     main()
